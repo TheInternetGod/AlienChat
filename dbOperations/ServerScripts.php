@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 $currentDate = date_create()->format('Y-m-d H:i:s');
-$dataBaseName = 'chat_app';
+$dataBaseName = 'YOUR DATABASE NAME';
 
 
 if (!file_exists('../uploads')) {
