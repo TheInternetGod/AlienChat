@@ -1,10 +1,10 @@
 <?php
 require 'ServerScripts.php';
 
-$dataBaseName = 'chat_app';
-$host = 'localhost';
-$username = 'KAUSHIK000';
-$password = '000KAUSHIK666';
+$dataBaseName = 'YOUR DATABASE NAME';
+$host = 'YOUR HOST SERVER';
+$username = 'YOUR DATABASE USERNAME';
+$password = 'YOUR DATABASE PASSWORD';
 
 // Initial connection to create database
 $connection = mysqli_connect($host, $username, $password);
