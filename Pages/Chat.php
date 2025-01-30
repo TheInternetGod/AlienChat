@@ -163,10 +163,10 @@ if (!$messages) {
     <div class="container mx-auto p-4 relative z-10 flex flex-col h-screen">
         <!-- Header with Flame Animation -->
         <nav class="flex justify-between items-center p-4 border-b border-matrix-green/30 bg-black/20 backdrop-blur">
-            <div class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-creepy uppercase text-transparent 
+            <div class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-creepy uppercase text-transparent 
                         bg-flame bg-clip-text [-webkit-background-clip:text] 
                         bg-[length:200%_auto] animate-flame tracking-wider">
-                ALIEN CHAT
+            ALIEN CHAT
             </div>
             <div class="flex space-x-2 sm:space-x-6">
                 <a href="../logout.php" 
