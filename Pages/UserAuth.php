@@ -10,19 +10,57 @@ if (isset($_POST['register'])) {
     $password = strtolower(trim($_POST['password']));
     $retyped_password = strtolower(trim($_POST['retyped_password']));
     
-    if ($password !== $retyped_password) {
+    // Check for existing username
+    $check_stmt = mysqli_prepare($connection, "SELECT username FROM Users WHERE username = ?");
+    mysqli_stmt_bind_param($check_stmt, "s", $username);
+    mysqli_stmt_execute($check_stmt);
+    mysqli_stmt_store_result($check_stmt);
+    
+    if (mysqli_stmt_num_rows($check_stmt) > 0) {
+        $error = "Username already exists. Please choose a different username.";
+    } else if ($password !== $retyped_password) {
         $error = "Passwords do not match!";
     } else {
         $password = crypt($password, "salt");
-        $query = "INSERT INTO Users (username, password) VALUES ('$username', '$password')";
+        $insert_stmt = mysqli_prepare($connection, "INSERT INTO Users (username, password) VALUES (?, ?)");
+        mysqli_stmt_bind_param($insert_stmt, "ss", $username, $password);
         
-        if (mysqli_query($connection, $query)) {
+        if (mysqli_stmt_execute($insert_stmt)) {
             header("Location: ../index.php?registered=true");
             exit();
         } else {
-            $error = "Registration failed. Username may already exist.";
+            $error = "Registration failed. Please try again.";
         }
     }
+    mysqli_stmt_close($check_stmt);
+}
+
+if (isset($_POST['login'])) {
+    $username = strtolower(trim($_POST['username']));
+    $password = strtolower(trim($_POST['password']));
+    $password = crypt($password, "salt");
+    
+    $login_stmt = mysqli_prepare($connection, "SELECT * FROM Users WHERE username = ? AND password = ?");
+    mysqli_stmt_bind_param($login_stmt, "ss", $username, $password);
+    mysqli_stmt_execute($login_stmt);
+    $result = mysqli_stmt_get_result($login_stmt);
+    
+    if (mysqli_num_rows($result) == 1) {
+        $user = mysqli_fetch_assoc($result);
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['username'] = $user['username'];
+        header("Location: chat.php");
+        exit();
+    } else {
+        $error = "Invalid username or password";
+    }
+    mysqli_stmt_close($login_stmt);
+}
+
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header("Location: ../index.php");
+    exit();
 }
 ?>
 
