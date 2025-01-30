@@ -32,6 +32,11 @@ if (isset($_POST['register'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="70x70" href="../CSS/favicon-70.png">
+<link rel="apple-touch-icon" sizes="144x144" href="../CSS/favicon-144.png">
+<link rel="msapplication-TileImage" sizes="150x150" href="../CSS/favicon-150.png">
+<link rel="msapplication-square310x310logo" sizes="310x310" href="../CSS/favicon-310.png">
+<link rel="shortcut icon" href="../CSS/favicon-70.png">    
     <title>Register - ALIEN CHAT</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
