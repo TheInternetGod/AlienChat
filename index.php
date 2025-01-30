@@ -55,6 +55,23 @@ if (isset($_POST['login'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Core Meta Tags -->
+    <meta name="description" content="Welcome to Alien Chat Room - Your anonymous messaging platform">
+    <meta name="keywords" content="alien chat, messaging, anonymous communication">
+    <meta name="author" content="TheGreatOlu">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Alien Chatroom">
+    <meta property="og:description" content="Alien Chat is an anonymous chatrooom where users can interact wihout revealing their identities.">
+    <meta property="og:image" content="http://alienchat.great-site.net/CSS/img1763.jpg">
+    <meta property="og:url" content="http://alienchat.great-site.net">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="http://alienchat.great-site.net/CSS/img1763.jpg">
+    
+    <!-- Favicon Links -->    
 <link rel="icon" type="image/png" sizes="70x70" href="/CSS/favicon-70.png">
 <link rel="apple-touch-icon" sizes="144x144" href="/CSS/favicon-144.png">
 <link rel="msapplication-TileImage" sizes="150x150" href="/CSS/favicon-150.png">
